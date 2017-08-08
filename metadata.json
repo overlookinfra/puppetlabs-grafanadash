@@ -1,12 +1,12 @@
 {
-  "name": "cprice404-grafanadash",
-  "version": "0.0.6",
-  "source": "git clone https://github.com/cprice404/puppet-grafanadash",
+  "name": "puppetlabs-grafanadash",
+  "version": "1.0.0",
+  "source": "https://github.com/puppetlabs/puppetlabs-grafanadash",
   "author": "Chris Price",
   "license": "Mozilla Public License Version 2.0",
-  "summary": "Grafana Dashboard module",
-  "description": "Installs graphite and grafana",
-  "project_page": "https://github.com/cprice404/puppet-grafanadash",
+  "summary": "Grafana Dashboard module for testing purposes",
+  "description": "Installs graphite and grafana for Puppetlabs testing purposes. Only supports EL 7.",
+  "project_page": "https://github.com/puppetlabs/puppetlabs-grafanadash",
 
   "dependencies": [
     { "name": "dwerder/graphite", "version_requirement": "7.1.0" },

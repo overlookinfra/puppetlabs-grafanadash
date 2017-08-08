@@ -1,14 +1,14 @@
-puppet-grafanadash
+puppetlabs-grafanadash
 ==================
 
 This is just a dev module; it installs a very simple configuration of
-graphite, grafana, and elasticsearch.  Tested only on a clean cent6 box.
+graphite, grafana, and elasticsearch.  Tested only on a clean cent7 box.
 
-WARNING: totally insecure.  Turns off selinux and iptables.  Enables CORS on apache.
+**WARNING: totally insecure.  Turns off selinux and iptables.  Enables CORS on apache.**
 
 Usage:
 
-    puppet module install cprice404-grafanadash
+    puppet module install puppetlabs-grafanadash
 
     puppet apply -e 'include grafanadash::dev'
 
