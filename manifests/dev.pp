@@ -28,7 +28,7 @@ class grafanadash::dev() {
 
   class { 'grafanadash::grafana':
     graphite_host => $::graphite::gr_web_servername,
-    graphite_port => $::graphite::gr_apache_port,
+    graphite_port => $::graphite::gr_web_server_port,
     elasticsearch_host => $::fqdn,
     grafana_host => $::fqdn,
   } ->
