@@ -1,6 +1,6 @@
 class grafanadash::dev() {
   # hack; there is probably a module for this
-  exec { '/usr/sbin/setenforce 0': }
+  exec { '/usr/sbin/setenforce 0 || /bin/true': }
 
   # this is stupid, for anything other than dev
   service { 'iptables':
