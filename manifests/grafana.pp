@@ -13,11 +13,15 @@ class grafanadash::grafana (
   $grafana_host       = $grafanadash::grafana::params::grafana_host,
   $grafana_port       = $grafanadash::grafana::params::grafana_port,
 ) inherits grafanadash::grafana::params {
-  archive { "grafana-${version}":
-    ensure   => present,
-    url      => $download_url,
-    target   => $install_dir,
-    checksum => false,
+
+  $archive = "${install_dir}/grafana-${version}.tar.gz"
+
+  archive { $archive:
+    ensure       => present,
+    source       => $download_url,
+    extract      => true,
+    extract_path => $install_dir,
+    creates      => "${install_dir}/grafana-${version}",
   } ->
 
   file { "${install_dir}/grafana-${version}/config.js":
@@ -25,13 +29,13 @@ class grafanadash::grafana (
     content => template('grafanadash/opt/grafana/config.js.erb'),
     owner   => $user,
     group   => $group,
-    require => Archive["grafana-${version}"],
+    require => Archive[$archive],
   } ->
 
   file { $symlink_name:
     ensure  => link,
     target  => "${install_dir}/grafana-${version}",
-    require => Archive["grafana-${version}"],
+    require => Archive[$archive],
   } ->
 
   file { "${::graphite::params::apacheconf_dir}/grafana.conf":
