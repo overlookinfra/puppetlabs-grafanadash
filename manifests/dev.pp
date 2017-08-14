@@ -13,6 +13,15 @@ class grafanadash::dev() {
     ensure => present,
   } ->
 
+  # graphite's /render endpoints throws errors when these dependencies are missing/not updated
+  package { 'pycairo':
+    ensure => latest,
+  } ->
+
+  package { 'libdrm':
+    ensure => latest,
+  } ->
+
   class { 'epel': } ->
 
   class { 'graphite':
