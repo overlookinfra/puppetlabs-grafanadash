@@ -1,6 +1,6 @@
 {
   "name": "puppetlabs-grafanadash",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source": "https://github.com/puppetlabs/puppetlabs-grafanadash",
   "author": "Chris Price",
   "license": "Mozilla Public License Version 2.0",
